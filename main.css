@@ -1,0 +1,8 @@
+.bx-wrapper, .bx-viewport {
+    height: 244.3px !important;
+}
+.stats:after {
+    content: "";
+    display: block;
+    clear: both;
+}

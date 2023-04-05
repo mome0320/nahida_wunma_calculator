@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Damage Checker</title>
+    <script src="jquery-latest.min.js"></script>
+    <script src="jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="jquery.bxslider.min.css">
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <script src="main.js?ver=1.0" defer></script>
+</head>
+<body>
+    <div>
+        <span id='input'>
+            <div>
+                <div>캐릭터ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ캐릭터 레벨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ캐릭터 돌파</div>
+                <select name='character'id='character' onchange="characterChanged()">
+                    <option value='default' selected>==캐릭터를 선택해주세요==</option>
+                    <option value='sword'>여행자</option>
+                    <option value='sword'>케이아</option>
+                    <option value='sword'>행추</option>
+                    <option value='sword'>베넷</option>
+                    <option value='sword'>진</option>
+                    <option value='sword'>치치</option>
+                    <option value='sword'>각청</option>
+                    <option value='sword'>알베도</option>
+                    <option value='claymore'>레이저</option>
+                    <option value='claymore'>북두</option>
+                    <option value='claymore'>노엘</option>
+                    <option value='claymore'>중운</option>
+                    <option value='claymore'>다이루크</option>
+                    <option value='claymore'>신염</option>
+                    <option value='catalyst'>리사</option>
+                    <option value='catalyst'>바바라</option>
+                    <option value='catalyst'>응광</option>
+                    <option value='catalyst'>설탕</option>
+                    <option value='catalyst'>모나</option>
+                    <option value='catalyst'>클레</option>
+                    <option value='polearm'>향릉</option>
+                    <option value='polearm'>종려</option>
+                    <option value='polearm'>소</option>
+                    <option value='polearm'>호두</option>
+                    <option value='polearm'>로자리아</option>
+                    <option value='bow'>엠버</option>
+                    <option value='bow'>피슬</option>
+                    <option value='bow'>벤티</option>
+                    <option value='bow'>디오나</option>
+                    <option value='bow'>타르탈리아</option>
+                    <option value='bow'>감우</option>
+                </select>
+                <select name='characterLevel' id='characterLevel' onchange='changeCLevel();'>
+                    <option value='default' selected>==캐릭터의 레벨을 선택해주세요==</option>
+                    <option value='C1' hidden>1레벨</option>
+                    <option value='C20' hidden>20레벨</option>
+                    <option value='C40' hidden>40레벨</option>
+                    <option value='C50' hidden>50레벨</option>
+                    <option value='C60' hidden>60레벨</option>
+                    <option value='C70' hidden>70레벨</option>
+                    <option value='C80' hidden>80레벨</option>
+                    <option value='C90' hidden>90레벨</option>
+                </select>
+                <select name='characterBreak' id='characterBreak'>
+                    <option value='default'>==캐릭터 돌파 횟수를 선택해주세요==</option>
+                    <option value='none' hidden>돌파하지 않음</option>
+                    <option value='B1' hidden>1돌파</option>
+                    <option value='B2' hidden>2돌파</option>
+                    <option value='B3' hidden>3돌파</option>
+                    <option value='B4' hidden>4돌파</option>
+                    <option value='B5' hidden>5돌파</option>
+                    <option value='B6' hidden>6돌파</option>
+                </select>
+            </div>
+            <div>
+                <div>무기ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ무기 레벨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ무기 돌파</div>
+                <select name='weapon' id='weapon' onchange="changeWeapon();">
+                    <!-- 한손검 : sword, 양손검 : claymore, 법구 : catalyst, 활 : bow, 창 : polearm -->
+                    <option value='default' selected>==무기를 선택해주세요==</option>
+                    <option value='sword5' hidden>매의 검</option>
+                    <option value='sword5' hidden>천공의 검</option>
+                    <option value='sword5' hidden>참봉의 칼날</option>
+                    <option value='sword5' hidden>반암결록</option>
+                    <option value='sword4' hidden>페보니우스 검</option>
+                    <option value='sword4' hidden>피리검</option>
+                    <option value='sword4' hidden>제례검</option>
+                    <option value='sword4' hidden>왕실의 장검</option>
+                    <option value='sword4' hidden>용의 포효</option>
+                    <option value='sword4' hidden>참암 프로토타입</option>
+                    <option value='sword4' hidden>강철 벌침</option>
+                    <option value='sword4' hidden>흑암 장검</option>
+                    <option value='sword4' hidden>칠흑검</option>
+                    <option value='sword4' hidden>강림의 검</option>
+                    <option value='sword4' hidden>부식의 검</option>
+                    <option value='sword4' hidden>뒷골목의 섬광</option>
+                    <option value='sword3' hidden>차가운 칼날</option>
+                    <option value='sword3' hidden>여명신검</option>
+                    <option value='sword3' hidden>여행자의 검</option>
+                    <option value='sword3' hidden>흘호 생선회칼</option>
+                    <option value='sword3' hidden>비천어검</option>
+                    <option value='sword3' hidden>암철검</option>
+                    <option value='sword2' hidden>실버 소드</option>
+                    <option value='sword1' hidden>무인검</option>
+                    <option value='claymore5' hidden>천공의 긍지</option>
+                    <option value='claymore5' hidden>늑대의 말로</option>
+                    <option value='claymore5' hidden>무공의 검</option>
+                    <option value='claymore4' hidden>페보니우스 대검</option>
+                    <option value='claymore4' hidden>시간의 검</option>
+                    <option value='claymore4' hidden>제례 대검</option>
+                    <option value='claymore4' hidden>왕실의 대검</option>
+                    <option value='claymore4' hidden>빗물 베기</option>
+                    <option value='claymore4' hidden>고화 프로토타입</option>
+                    <option value='claymore4' hidden>백영검</option>
+                    <option value='claymore4' hidden>흑암참도</option>
+                    <option value='claymore4' hidden>이무기 검</option>
+                    <option value='claymore4' hidden>설장의 성은</option>
+                    <option value='claymore4' hidden>천암고검</option>
+                    <option value='claymore3' hidden>강철의 그림자</option>
+                    <option value='claymore3' hidden>드래곤 블러드 소드</option>
+                    <option value='claymore3' hidden>백철 대검</option>
+                    <option value='claymore3' hidden>훌륭한 대화수단</option>
+                    <option value='claymore3' hidden>비천대어검</option>
+                    <option value='claymore2' hidden>용병 중검</option>
+                    <option value='claymore1' hidden>훈련용 대검</option>
+                    <option value='catalyst5' hidden>천공의 두루마리</option>
+                    <option value='catalyst5' hidden>사풍 원서</option>
+                    <option value='catalyst5' hidden>속세의 자물쇠</option>
+                    <option value='catalyst4' hidden>페보니우스 비전</option>
+                    <option value='catalyst4' hidden>음유시인의 악장</option>
+                    <option value='catalyst4' hidden>제례의 악장</option>
+                    <option value='catalyst4' hidden>왕실의 비전록</option>
+                    <option value='catalyst4' hidden>일월의 정수</option>
+                    <option value='catalyst4' hidden>황금 호박 프로토타입</option>
+                    <option value='catalyst4' hidden>만국 항해용해도</option>
+                    <option value='catalyst4' hidden>흑암 홍옥</option>
+                    <option value='catalyst4' hidden>소심</option>
+                    <option value='catalyst4' hidden>인동의 열매</option>
+                    <option value='catalyst4' hidden>뒷골목의 술과 시</option>
+                    <option value='catalyst3' hidden>마도 서론</option>
+                    <option value='catalyst3' hidden>드래곤 슬레이어 영웅담</option>
+                    <option value='catalyst3' hidden>이세계 여행기</option>
+                    <option value='catalyst3' hidden>비취 오브</option>
+                    <option value='catalyst3' hidden>1급 보옥</option>
+                    <option value='catalyst2' hidden>포켓 주술서</option>
+                    <option value='catalyst1' hidden>학도의 노트</option>
+                    <option value='bow5' hidden>천공의 날개</option>
+                    <option value='bow5' hidden>아모스의 활</option>
+                    <!--<option value='bow5' hidden>종말 탄식의 노래</option>-->
+                    <option value='bow4' hidden>페보니우스 활</option>
+                    <option value='bow4' hidden>절현</option>
+                    <option value='bow4' hidden>제례활</option>
+                    <option value='bow4' hidden>왕실의 장궁</option>
+                    <option value='bow4' hidden>녹슨 활</option>
+                    <option value='bow4' hidden>담월 프로토타입</option>
+                    <option value='bow4' hidden>강철궁</option>
+                    <option value='bow4' hidden>흑암 배틀 보우</option>
+                    <option value='bow4' hidden>청록의 사냥활</option>
+                    <option value='bow4' hidden>바람 꽃의 노래</option>
+                    <option value='bow4' hidden>뒷골목 사냥꾼</option>
+                    <option value='bow3' hidden>까마귀깃 활</option>
+                    <option value='bow3' hidden>신궁의 서약</option>
+                    <option value='bow3' hidden>곡궁</option>
+                    <option value='bow3' hidden>탄궁</option>
+                    <option value='bow3' hidden>전령</option>
+                    <option value='bow2' hidden>노련의 사냥활</option>
+                    <option value='bow1' hidden>사냥활</option>
+                    <option value='polearm5' hidden>화박연</option>
+                    <option value='polearm5' hidden>천공의 마루</option>
+                    <option value='polearm5' hidden>관홍의 창</option>
+                    <option value='polearm5' hidden>호마의 지팡이</option>
+                    <option value='polearm4' hidden>용학살창</option>
+                    <option value='polearm4' hidden>별의 낫 프로토타입</option>
+                    <option value='polearm4' hidden>유월창</option>
+                    <option value='polearm4' hidden>흑암창</option>
+                    <option value='polearm4' hidden>결투의 창</option>
+                    <option value='polearm4' hidden>페보니우스 장창</option>
+                    <option value='polearm4' hidden>왕실의 장창</option>
+                    <option value='polearm4' hidden>용의 척추</option>
+                    <option value='polearm4' hidden>천암장창</option>
+                    <option value='polearm3' hidden>백술창</option>
+                    <option value='polearm3' hidden>미늘창</option>
+                    <option value='polearm3' hidden>흑술창</option>
+                    <option value='polearm2' hidden>철촉창</option>
+                    <option value='polearm1' hidden>초보자의 장창</option>
+                </select>
+                <select name='weaponLevel' id='weaponLevel' onchange="changeLevel();">
+                    <option value='default'>==무기 레벨을 선택해주세요==</option>
+                    <option value='WL1' hidden>무기 1레벨</option>
+                    <option value='WL20' hidden>무기 20레벨</option>
+                    <option value='WL40' hidden>무기 40레벨</option>
+                    <option value='WL50' hidden>무기 50레벨</option>
+                    <option value='WL60' hidden>무기 60레벨</option>
+                    <option value='WL70' hidden>무기 70레벨</option>
+                    <option value='WL80' hidden>무기 80레벨</option>
+                    <option value='WL90' hidden>무기 90레벨</option>
+                </select>
+                <select name='weaponBreak' id='weaponBreak'>
+                    <option value='default'>==무기 돌파 횟수를 선택해주세요==</option>
+                    <option value='none' hidden>돌파하지 않음</option>
+                    <option value='B1' hidden>무기 1돌파</option>
+                    <option value='B2' hidden>무기 2돌파</option>
+                    <option value='B3' hidden>무기 3돌파</option>
+                    <option value='B4' hidden>무기 4돌파</option>
+                    <option value='B5' hidden>무기 5돌파</option>
+                    <option value='B6' hidden>무기 6돌파</option>
+                </select>
+            </div>
+            <div class='stats'>
+                <span class='mainStats' style="float:left">
+                    <div>
+                        <p>HP</p>
+                        <label for='HP' id='HP'></label> <input type="number" name="HP" id='HP' min=0 value=0>
+                    </div>
+                    <div>
+                        <p>공격력</p>
+                        <label for='ATK' id='ATK'></label> <input type='number' name='ATK' id='ATK' min=0 value=0>
+                    </div>
+                    <div>
+                        <p>방어력</p>
+                        <label for='DEF' id='DEF'></label> <input type='number' name='DEF' id='DEF' min=0 value=0>
+                    </div>
+                    <div>
+                        <p>원소 마스터리</p>
+                        <label for='EM' id='EM'></label> <input type='number' name='EM' id='EM' min=0 value=0>
+                    </div>
+                </span>
+                <span class='talentsLevel' style="float:left">
+                    <p>
+                        <p>일반공격</p>
+                        <select name='talents1' id='talents1'>
+                            <option value='default'>==일반 공격 레벨을 선택해주세요==</option>
+                            <option value='L1' hidden>1레벨</option>
+                            <option value='L2' hidden>2레벨</option>
+                            <option value='L3' hidden>3레벨</option>
+                            <option value='L4' hidden>4레벨</option>
+                            <option value='L5' hidden>5레벨</option>
+                            <option value='L6' hidden>6레벨</option>
+                            <option value='L7' hidden>7레벨</option>
+                            <option value='L8' hidden>8레벨</option>
+                            <option value='L9' hidden>9레벨</option>
+                            <option value='L10' hidden>10레벨</option>
+                            <option value='L11' hidden>11레벨</option>
+                            <option value='L12' hidden>12레벨</option>
+                        </select>
+                    </p>
+                    <p>
+                        <p>원소스킬</p>
+                        <select name='talents2' id='talents2'>
+                            <option value='default'>==원소 스킬 레벨을 선택해주세요==</option>
+                            <option value='L1' hidden>1레벨</option>
+                            <option value='L2' hidden>2레벨</option>
+                            <option value='L3' hidden>3레벨</option>
+                            <option value='L4' hidden>4레벨</option>
+                            <option value='L5' hidden>5레벨</option>
+                            <option value='L6' hidden>6레벨</option>
+                            <option value='L7' hidden>7레벨</option>
+                            <option value='L8' hidden>8레벨</option>
+                            <option value='L9' hidden>9레벨</option>
+                            <option value='L10' hidden>10레벨</option>
+                            <option value='L11' hidden>11레벨</option>
+                            <option value='L12' hidden>12레벨</option>
+                            <option value='L13' hidden>13레벨</option>
+                        </select>
+                    </p>
+                    <p>
+                        <p>원소폭발</p>
+                        <select name='talents3' id='talents3'>
+                            <option value='default'>==원소 폭발 레벨을 선택해주세요==</option>
+                            <option value='L1' hidden>1레벨</option>
+                            <option value='L2' hidden>2레벨</option>
+                            <option value='L3' hidden>3레벨</option>
+                            <option value='L4' hidden>4레벨</option>
+                            <option value='L5' hidden>5레벨</option>
+                            <option value='L6' hidden>6레벨</option>
+                            <option value='L7' hidden>7레벨</option>
+                            <option value='L8' hidden>8레벨</option>
+                            <option value='L9' hidden>9레벨</option>
+                            <option value='L10' hidden>10레벨</option>
+                            <option value='L11' hidden>11레벨</option>
+                            <option value='L12' hidden>12레벨</option>
+                            <option value='L13' hidden>13레벨</option>
+                        </select>
+                    </p>
+                </span>
+            </div>
+        </span>
+    </div>
+    <div>
+        <ul class='artifactsSlider'>
+            <li>
+                <div>
+                    <span>
+                        <p>
+                            <select name='artifactSelect' id='artifactSelect'>
+                                <option value='default'>==성유물 종류를 선택해주세요==</option>
+                            </select>
+                        </p>
+                        <p>
+                            <img src='1.png'> <!--성유물 이미지(이름에 맞춰서 포맷)-->
+                        </p>
+                    </span>
+                    <span>
+                        <p>??의 ??</p>
+                        <p>
+                            <select name="mainOption1" id='mainOption1'>
+                                <option>==주 옵션을 선택해주세요==</option>
+                            </select>
+                        </p>
+                        <div>
+                            <select name="subOption1-1" id='subOption1-1'>
+                                <option value='default'>==부옵션을 선택해주세요==</option>
+                            </select>
+                            <select name="subOption1-2" id='subOption1-2'>
+                                <option value='default'>==부옵션을 선택해주세요==</option>
+                            </select>
+                            <select name="subOption1-3" id='subOption1-3'>
+                                <option value='default'>==부옵션을 선택해주세요==</option>
+                            </select>
+                            <select name="subOption1-4" id='subOption1-4'>
+                                <option value='default'>==부옵션을 선택해주세요==</option>
+                            </select>
+                        </div>
+                        <p></p> <!--공백 기호-->
+                        <div>
+                            <div>세트효과1</div>
+                            <div>세트효과2</div>
+                        </div>
+                    </span>
+                </div>
+            </li>
+            <li><img src='2.png'></li>
+            <li><img src='3.png'></li>
+            <li><img src='4.png'></li>
+            <li><img src='5.png'></li>
+        </ul>
+    </div>
+    <div>
+        <span id='output'>
+            <!--여기서부터 출력이 되게 만들기-->
+        </span>
+    </div>
+</body>
+</html>
