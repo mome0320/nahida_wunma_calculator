@@ -10,3 +10,7 @@ function jaeryonChanged(){
     var JR = document.getElementById('JLevel').selectedIndex
     document.getElementById('jaeryonImage').src = `./image/jaeryon/${JR+1}jae.PNG`
 }
+function dolpaChanged(){
+    var dol = document.getElementById('dolpa').selectedIndex
+    document.getElementById('dolpaImage').src = `./image/dol/${dol}dol.PNG`
+}

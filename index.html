@@ -17,59 +17,83 @@
     <div class="container">
         <h1>나히다의 원소 마스터리 필요량 계산기입니다.</h1>
     </div>
-    <form>
-        <ul>
-            <li id="level">
-                <h3>나히다의 레벨</h3>
-                <div>
-                    <img src="./image/levels/level0.PNG" id="LevelImage">
-                </div>
-                    <select id="Clevel" onchange="LevelChanged()">
-                    <option value="level0" value="default">0돌파</option>
-                    <option value="level1">1돌파</option>
-                    <option value="level2">2돌파</option>
-                    <option value="level3">3돌파</option>
-                    <option value="level4">4돌파</option>
-                    <option value="level5">5돌파</option>
-                    <option value="level6">6돌파</option>
-                </select>
-            </li>
-            <li id="weapon">
-                <h3>나히다의 무기</h3>
-                <input list="weaponlist" name="weapon" id="weapon">
-                <datalist id="weaponlist">
-                    <option value = "떠오르는 천일 밤의 꿈" label="5성 법구 전용무기">
-                    <option value = "방랑하는 저녁별" label="4성 법구">
-                    <option value = "제례의 악장" label="4성 법구">
-                    <option value = "음유시인의 악장" label="4성 법구">
-                    <option value = "마도 서론" label="3성 법구">
-                    <option value = "기타 무기(원소 마스터리에 영향이 없는 무기)" label="1~5성 법구">
-                </datalist>
-            </li>
-            <li id="weaponLevel">
-                <h3>무기 돌파 레벨 / 재련 단계</h3>
-                <div>
-                    <img src="./image/levels/level0.PNG" id="WeaponLevelImage">
-                    <img src="./image/jaeryon/1jae.PNG" id="jaeryonImage">
-                </div>
-                <select name="WLevel" id="WLevel" onchange="WLevelChanged()">
-                    <option value="level0" value="default">0돌파</option>
-                    <option value="level1">1돌파</option>
-                    <option value="level2">2돌파</option>
-                    <option value="level3">3돌파</option>
-                    <option value="level4">4돌파</option>
-                    <option value="level5">5돌파</option>
-                    <option value="level6">6돌파</option>
-                </select>
-                <select name="WLevel" id="JLevel" onchange="jaeryonChanged()">
-                    <option value="level1" value="default">1재련</option>
-                    <option value="level2">2재련</option>
-                    <option value="level3">3재련</option>
-                    <option value="level4">4재련</option>
-                    <option value="level5">5재련</option>
-                </select>
-            </li>
-        </ul>
-    </form>
+    <div style="width: 30%; height:150px; float:left;">
+        <form>
+            <ul>
+                <li id="level">
+                    <h3>나히다의 레벨</h3>
+                    <div>
+                        <img src="./image/levels/level0.PNG" id="LevelImage">
+                    </div>
+                        <select id="Clevel" onchange="LevelChanged()">
+                        <option value="level0" value="default">0돌파</option>
+                        <option value="level1">1돌파</option>
+                        <option value="level2">2돌파</option>
+                        <option value="level3">3돌파</option>
+                        <option value="level4">4돌파</option>
+                        <option value="level5">5돌파</option>
+                        <option value="level6">6돌파</option>
+                    </select>
+                </li>
+                <li id="weapon">
+                    <h3>나히다의 무기</h3>
+                    <input list="weaponlist" name="weapon" id="weapon">
+                    <datalist id="weaponlist">
+                        <option value = "떠오르는 천일 밤의 꿈" label="5성 법구 전용무기">
+                        <option value = "방랑하는 저녁별" label="4성 법구">
+                        <option value = "제례의 악장" label="4성 법구">
+                        <option value = "음유시인의 악장" label="4성 법구">
+                        <option value = "마도 서론" label="3성 법구">
+                        <option value = "기타 무기(원소 마스터리에 영향이 없는 무기)" label="1~5성 법구">
+                    </datalist>
+                </li>
+                <li id="weaponLevel">
+                    <h3>무기 돌파 레벨 / 재련 단계</h3>
+                    <div>
+                        <img src="./image/levels/level0.PNG" id="WeaponLevelImage">
+                        <img src="./image/jaeryon/1jae.PNG" id="jaeryonImage">
+                    </div>
+                    <select name="WLevel" id="WLevel" onchange="WLevelChanged()">
+                        <option value="level0" value="default">0돌파</option>
+                        <option value="level1">1돌파</option>
+                        <option value="level2">2돌파</option>
+                        <option value="level3">3돌파</option>
+                        <option value="level4">4돌파</option>
+                        <option value="level5">5돌파</option>
+                        <option value="level6">6돌파</option>
+                    </select>
+                    <select name="WLevel" id="JLevel" onchange="jaeryonChanged()">
+                        <option value="level1" value="default">1재련</option>
+                        <option value="level2">2재련</option>
+                        <option value="level3">3재련</option>
+                        <option value="level4">4재련</option>
+                        <option value="level5">5재련</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div style="width: 50%; height:150px; float:left;">
+        <form>
+            <ul>
+                <li>
+                    <h3>나히다의 운명의 별자리</h3>
+                    <img src="./image/dol/0dol.PNG" id="dolpaImage">
+                    <select name="dolpa" id="dolpa" onchange="dolpaChanged()">
+                        <option value="0dol" value="default">0돌파</option>
+                        <option value="1dol">1돌파</option>
+                        <option value="2dol">2돌파</option>
+                        <option value="3dol">3돌파</option>
+                        <option value="4dol">4돌파</option>
+                        <option value="5dol">5돌파</option>
+                        <option value="6dol">6돌파</option>
+                    </select>
+                </li>
+                <li>
+                    <h3>기타 요소를 통한 원소 마스터리 수급</h3>
+                </li>
+            </ul>
+        </form>
+    </div>
 </body>
 </html>
