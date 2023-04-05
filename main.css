@@ -8,10 +8,3 @@ h1,h2,h3,h4,h5,h6,#ex-out {
 .container {
     text-align: center;
 }
-select#level option[value="0돌파"]   { background-image:url(\image\levels\level0.png);}
-select#level option[value="1돌파"] { background-image:url(\image\levels\level1.png);}
-select#level option[value="2돌파"] { background-image:url(\image\levels\level2.png);}
-select#level option[value="3돌파"] { background-image:url(\image\levels\level3.png);}
-select#level option[value="4돌파"] { background-image:url(\image\levels\level4.png);}
-select#level option[value="5돌파"] { background-image:url(\image\levels\level5.png);}
-select#level option[value="6돌파"] { background-image:url(\image\levels\level6.png);}
