@@ -19,18 +19,27 @@
         <ul>
             <li id="level">
                 <h3>나히다의 레벨</h3>
-                <input type="number"min="1" max="90" maxlength="2" value="1" calss="level">
+                <select name="Level" >
+                    <option value="lvl0">0돌파</option>
+                    <option value="lvl1">1돌파</option>
+                    <option value="lvl2">2돌파</option>
+                    <option value="lvl3">3돌파</option>
+                    <option value="lvl4">4돌파</option>
+                    <option value="lvl5">5돌파</option>
+                    <option value="lvl6">6돌파</option>
+                </select>
             </li>
             <li id="weapon">
                 <h3>나히다의 무기</h3>
-                <select name='weapon'id='weapon' onchange="weaponChanged()">
-                    <option value='default' selected>==무기를 선택해주세요==</option>
-                    <option stat="265">떠오르는 천일 밤의 꿈</option>
-                    <option stat="265">방랑하는 저녁별</option>
-                    <option stat="265">제례의 악장</option>
-                    <option stat="265">음유시인의 악장</option>
-                    <option stat="265">마도 서론</option>
-                    <option stat="265">기타 무기(원마에 영향이 없는 무기)</option>
+                <input list="weaponlist" name="weapon" id="weapon">
+                <datalist id="weaponlist">
+                    <option value = "떠오르는 천일 밤의 꿈" label="5성 법구 전용무기">
+                    <option value = "방랑하는 저녁별" label="4성 법구">
+                    <option value = "제례의 악장" label="4성 법구">
+                    <option value = "음유시인의 악장" label="4성 법구">
+                    <option value = "마도 서론" label="3성 법구">
+                    <option value = "기타 무기(원마에 영향이 없는 무기)" label="1~5성 법구">
+                </datalist>
             </li>
         </ul>
     </form>

@@ -2,7 +2,7 @@
 body {
     background-color: rgb(62, 62, 62);
 }
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,#ex-out {
     color: antiquewhite;
 }
 .container {
