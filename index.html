@@ -21,8 +21,10 @@
         <ul>
             <li id="level">
                 <h3>나히다의 레벨</h3>
-                <img src="./image/levels/level0.PNG" id="LevelImage">
-                <select id="Clevel" onchange="LevelChanged()">
+                <div>
+                    <img src="./image/levels/level0.PNG" id="LevelImage">
+                </div>
+                    <select id="Clevel" onchange="LevelChanged()">
                     <option value="level0" value="default">0돌파</option>
                     <option value="level1">1돌파</option>
                     <option value="level2">2돌파</option>
@@ -48,6 +50,7 @@
                 <h3>무기 돌파 레벨 / 재련 단계</h3>
                 <div>
                     <img src="./image/levels/level0.PNG" id="WeaponLevelImage">
+                    <img src="./image/jaeryon/1jae.PNG" id="jaeryonImage">
                 </div>
                 <select name="WLevel" id="WLevel" onchange="WLevelChanged()">
                     <option value="level0" value="default">0돌파</option>
@@ -58,10 +61,13 @@
                     <option value="level5">5돌파</option>
                     <option value="level6">6돌파</option>
                 </select>
-                <div class="jaeryon-container">
-                    <input type="range" min="1" max="5" value="1" class="jaeryonSlider" id="myRange" onchange="jaeryonChanged()">
-                    <h4><span id="jaeryonValue"></span>재련</h4>
-                </div>
+                <select name="WLevel" id="JLevel" onchange="jaeryonChanged()">
+                    <option value="level1" value="default">1재련</option>
+                    <option value="level2">2재련</option>
+                    <option value="level3">3재련</option>
+                    <option value="level4">4재련</option>
+                    <option value="level5">5재련</option>
+                </select>
             </li>
         </ul>
     </form>

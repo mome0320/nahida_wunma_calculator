@@ -7,8 +7,6 @@ function WLevelChanged(){
     document.getElementById("WeaponLevelImage").src = `./image/levels/level${WL}.PNG`
 }
 function jaeryonChanged(){
-    var jaeryon = document.getElementsByClassName('jaeryonSlider')
-    var output = document.getElementById('jaeryonValue')
-    output.innerHTML = jaeryon.value
-    console.log(jaeryon)
+    var JR = document.getElementById('JLevel').selectedIndex
+    document.getElementById('jaeryonImage').src = `./image/jaeryon/${JR+1}jae.PNG`
 }
