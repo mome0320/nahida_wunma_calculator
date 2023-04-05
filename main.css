@@ -1,8 +1,10 @@
-.bx-wrapper, .bx-viewport {
-    height: 244.3px !important;
+
+body {
+    background-color: rgb(62, 62, 62);
 }
-.stats:after {
-    content: "";
-    display: block;
-    clear: both;
+h1,h2,h3,h4,h5,h6 {
+    color: antiquewhite;
+}
+.container {
+    text-align: center;
 }
