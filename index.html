@@ -21,14 +21,15 @@
         <ul>
             <li id="level">
                 <h3>나히다의 레벨</h3>
-                <select id="level"></select>
-                    <option value="lvl0">0돌파</option>
-                    <option value="lvl1">1돌파</option>
-                    <option value="lvl2">2돌파</option>
-                    <option value="lvl3">3돌파</option>
-                    <option value="lvl4">4돌파</option>
-                    <option value="lvl5">5돌파</option>
-                    <option value="lvl6">6돌파</option>
+                <img src="\image\levels\level0.PNG" id="LevelImage">
+                <select id="Clevel" onchange="LevelChanged()">
+                    <option value="level0" value="default">0돌파</option>
+                    <option value="level1">1돌파</option>
+                    <option value="level2">2돌파</option>
+                    <option value="level3">3돌파</option>
+                    <option value="level4">4돌파</option>
+                    <option value="level5">5돌파</option>
+                    <option value="level6">6돌파</option>
                 </select>
             </li>
             <li id="weapon">
@@ -42,6 +43,9 @@
                     <option value = "마도 서론" label="3성 법구">
                     <option value = "기타 무기(원마에 영향이 없는 무기)" label="1~5성 법구">
                 </datalist>
+            </li>
+            <li id="weaponLevel">
+                <h3>무기 레벨 / 재련 단계</h3>
             </li>
         </ul>
     </form>
