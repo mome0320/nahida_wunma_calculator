@@ -57,4 +57,12 @@ strong{
     height:477px;
     object-fit: fill;
 }
-#second
+.aww{
+    margin-left: 20px;
+}
+#first, #second, #third{
+    scale:111%
+}
+#PlusJaeryon2, #PlusJaeryon3{
+    margin-left: 20px;
+}
