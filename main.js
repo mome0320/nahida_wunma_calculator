@@ -7,13 +7,19 @@ function isMobile() {
         || user.indexOf("iPad") > -1
         || user.indexOf("iPod") > -1
     ) {
-        is_mobile = true;
+        return true;
+    }else{
+        return false;
     }
-    return is_mobile;
 }
-var is_mobile = isMobile();
-if( is_mobile ) {
-    document.getElementsByClassName("justPC").style.visibility ='hidden';
+var a = 10
+while(a>0){
+    if(isMobile()){
+        window.location.replace("https://shirakamicocoa6078.github.io/alpano/")
+        break
+    }else{
+        a = a-1
+    }
 }
 function LevelChanged(){
     var CL = document.getElementById('Clevel').selectedIndex
