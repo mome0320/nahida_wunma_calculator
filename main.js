@@ -15,7 +15,7 @@ function isMobile() {
 var a = 10
 while(a>0){
     if(isMobile()){
-        window.location.replace("https://shirakamicocoa6078.github.io/alpano/")
+        window.location.href("https://shirakamicocoa6078.github.io/alpano/")
         break
     }else{
         a = a-1
