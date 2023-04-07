@@ -2,8 +2,16 @@
 body {
     background-color: rgb(62, 62, 62);
 }
-h1,h2,h3,h4,h5,h6,#ex-out {
+h1,h2,h3,h4,h5,h6,p,#ex-out {
     color: antiquewhite;
+}
+label{
+    color:antiquewhite;
+}
+.namulink{
+    background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 .container {
     text-align: center;
@@ -25,7 +33,8 @@ h1,h2,h3,h4,h5,h6,#ex-out {
     scale:140%;
 }
 #dolpa{
-    margin-left: 85px;
+    margin-left: 145px;
+    margin-bottom: 200px;
     scale:400%
 }
 #LevelImage, #WeaponLevelImage{

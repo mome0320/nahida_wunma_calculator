@@ -17,7 +17,7 @@
     <div class="container">
         <h1>나히다의 원소 마스터리 필요량 계산기입니다.</h1>
     </div>
-    <div style="width: 30%; height:150px; float:left;">
+    <div style="width: 15%; height:150px; float:left;">
         <form>
             <ul>
                 <li id="level">
@@ -73,26 +73,39 @@
             </ul>
         </form>
     </div>
-    <div style="width: 50%; height:150px; float:left;">
+    <div style="width: 50%; height:190px; float:left;">
         <form>
             <ul>
-                <li>
-                    <h3>나히다의 운명의 별자리</h3>
-                    <img src="./image/dol/0dol.PNG" id="dolpaImage">
-                    <select name="dolpa" id="dolpa" onchange="dolpaChanged()">
-                        <option value="0dol" value="default">0돌파</option>
-                        <option value="1dol">1돌파</option>
-                        <option value="2dol">2돌파</option>
-                        <option value="3dol">3돌파</option>
-                        <option value="4dol">4돌파</option>
-                        <option value="5dol">5돌파</option>
-                        <option value="6dol">6돌파</option>
-                    </select>
-                </li>
-                <li>
-                    <h3>기타 요소를 통한 원소 마스터리 수급</h3>
-                </li>
+                <div>
+                    <li>
+                        <h3>나히다의 운명의 별자리</h3>
+                        <div style="float: left"><img src="./image/dol/0dol.PNG" id="dolpaImage"></div>
+                        <div>
+                            <select name="dolpa" id="dolpa" onchange="dolpaChanged()">
+                                <option value="0dol" value="default">0돌파(명함)</option>
+                                <option value="1dol">1돌파</option>
+                                <option value="2dol">2돌파</option>
+                                <option value="3dol">3돌파</option>
+                                <option value="4dol">4돌파</option>
+                                <option value="5dol">5돌파</option>
+                                <option value="6dol">6돌파</option>
+                            </select>
+                        </div>
+                    </li>
+                </div>
             </ul>
+        </form>
+    </div>
+    <div style="float:right;">
+        <form>
+            <li>
+                <h3>기타 요소를 통한 원소 마스터리 수급</h3>
+                <h5>모든 항목들은 나무위키 나히다 문서의 <a class="namulink" href="https://namu.wiki/w/%EB%82%98%ED%9E%88%EB%8B%A4#s-4" target="_blank">4.운용/원소 마스터리 버프 목록</a>을 참조하였습니다.</h5>
+                <h5>설명은 내 알빠가 아니니 님들이 나무위키가서 알아서 찾아보세요.<img src="./image/alpano.png" width="90"></h5>
+                <!--<input type="checkbox" name="" value="" checked>-->
+                <label><input type="checkbox" name="another-wunma" value="풀공명">풀 원소 공명</label>
+                
+            </li>
         </form>
     </div>
 </body>
