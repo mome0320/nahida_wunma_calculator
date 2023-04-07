@@ -17,8 +17,8 @@
     <div class="container">
         <h1>나히다의 원소 마스터리 필요량 계산기입니다.</h1>
     </div>
-    <div style="width: 15%; height:150px; float:left;">
-        <form>
+    <div style="position: relative; width: 20%; height:150px; float:left;">
+        <div style="position: relative">
             <ul>
                 <li id="level">
                     <h3>나히다의 레벨</h3>
@@ -71,15 +71,15 @@
                     </select>
                 </li>
             </ul>
-        </form>
+        </div style="position: relative">
     </div>
-    <div style="width: 50%; height:190px; float:left;">
-        <form>
+    <div style="position: relative; width: 28%; height:190px; float:left;">
+        <div style="position: relative">
             <ul>
                 <div>
                     <li>
                         <h3>나히다의 운명의 별자리</h3>
-                        <div style="float: left"><img src="./image/dol/0dol.PNG" id="dolpaImage"></div>
+                        <div style="position: relative; float: left"><img src="./image/dol/0dol.PNG" id="dolpaImage"></div>
                         <div>
                             <select name="dolpa" id="dolpa" onchange="dolpaChanged()">
                                 <option value="0dol" value="default">0돌파(명함)</option>
@@ -94,32 +94,35 @@
                     </li>
                 </div>
             </ul>
-        </form>
+        </div style="position: relative">
     </div>
-    <div style="float:left;">
-        <form>
+    <div style="position: relative; float:left;">
+        <div style="position: relative">
             <li>
                 <h3>기타 요소를 통한 원소 마스터리 수급</h3>
                 <h5>모든 항목들은 나무위키 나히다 문서의 <a class="namulink" href="https://namu.wiki/w/%EB%82%98%ED%9E%88%EB%8B%A4#s-4" target="_blank">4.운용/원소 마스터리 버프 목록</a>을 참조하였습니다.</h5><br>
                 <h6><a class="imgLink" target="_blank" href="https://raw.githubusercontent.com/ShirakamiCocoa6078/nahida_wunma_calculator/main/%EC%B0%B8%EA%B3%A0%EC%9A%A9%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%95%8C%EB%B9%A0%EB%85%B8.PNG">사진한짤정리</a></h6>
                 <h5>설명은 내 알빠가 아니니 위에 무지개링크타고 찾아보세요.<img src="./image/alpano.png" width="90"></h5>
                 <!--<input type="checkbox" name="" value="" checked>-->
-                <label><input class="aw" type="checkbox" name="another-wunma" value="풀공명">풀 원소 공명</label>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="교관4셋">교관 4세트</label>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="종탄노">종말 탄식의 노래(5성 활)</label><br><br>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="천일밤" onclick="junmuChecked()">떠오르는 천일 밤의 꿈<strong>주의)나히다가 아닌 다른 파티원이 꼈을 경우에만 체크해주세요.</strong></label><!--전무 끼고있으면 자동체크, 아니면 그냥 놔두기, 체크시 동명의 무기 몇개인지, 몇재인지 확인하기--><br><br>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="원목의검">원목의 검(4성 한손검)</label>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="숲의리게이">숲의 리게일리어(4성 양손검)</label><br><br>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="풀행자특성">여행자/풀속성 돌파 특성 1</label>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="알베도특성">알베도 돌파 특성 2</label><br><br>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="가문충2돌">카에데하라 카즈하 운명의 자리 2돌</label>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="타이나리4돌">타이나리 운명의 자리 4돌</label><br><br>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="닐루특성">닐루 돌파 특성 1</label>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="디오나6돌">디오나 운명의 자리 6</label><br><br>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="헤이조특성">시카노인 헤이조 돌파 특성 2</label>
-                <label><input class="aw" type="checkbox" name="another-wunma" value="콜레이4돌">콜레이 운명의 자리 4돌</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="1" alt="풀공명">풀 원소 공명</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="2" alt="교관4셋">교관 4세트</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="3" alt="종탄노">종말 탄식의 노래(5성 활)</label><br><br>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="4" alt="천일밤" onclick="junmuChecked()">떠오르는 천일 밤의 꿈<strong>주의)나히다가 아닌 다른 파티원이 꼈을 경우에만 체크해주세요.</strong></label><!--전무 끼고있으면 자동체크, 아니면 그냥 놔두기, 체크시 동명의 무기 몇개인지, 몇재인지 확인하기--><br><br>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="5" alt="원목의검">원목의 검(4성 한손검)</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="6" alt="숲의리게이">숲의 리게일리어(4성 양손검)</label><br><br>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="7" alt="풀행자특성">여행자/풀속성 돌파 특성 1</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="8" alt="알베도특성">알베도 돌파 특성 2</label><br><br>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="9" alt="가문충2돌">카에데하라 카즈하 운명의 자리 2돌</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="10" alt="타이나리4돌">타이나리 운명의 자리 4돌</label><br><br>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="11" alt="닐루특성">닐루 돌파 특성 1</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="12" alt="디오나6돌">디오나 운명의 자리 6</label><br><br>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="13" alt="헤이조특성">시카노인 헤이조 돌파 특성 2</label>
+                <label><input class="aw" type="checkbox" name="another-wunma" value="14" alt="콜레이4돌">콜레이 운명의 자리 4돌</label>
             </li>
-        </form>
+        </div style="position: relative">
+    </div>
+    <div>
+
     </div>
 </body>
 </html>
