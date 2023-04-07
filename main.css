@@ -8,6 +8,9 @@ h1,h2,h3,h4,h5,h6,p,#ex-out {
 label{
     color:antiquewhite;
 }
+.aw{
+    margin-left: 20px;
+}
 .namulink{
     background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
     -webkit-background-clip: text;
