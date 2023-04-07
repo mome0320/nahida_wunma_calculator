@@ -14,3 +14,6 @@ function dolpaChanged(){
     var dol = document.getElementById('dolpa').selectedIndex
     document.getElementById('dolpaImage').src = `./image/dol/${dol}dol.PNG`
 }
+function junmuChecked(){
+    //대충 전무 갯수칸 1개부터 3개까지 활성화
+}

@@ -11,7 +11,10 @@ label{
 .aw{
     margin-left: 20px;
 }
-.namulink{
+strong{
+    color: rgb(244, 70, 70);
+}
+.namulink, .imgLink{
     background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
     -webkit-background-clip: text;
     color: transparent;
