@@ -15,5 +15,32 @@ function dolpaChanged(){
     document.getElementById('dolpaImage').src = `./image/dol/${dol}dol.PNG`
 }
 function junmuChecked(){
-    //대충 전무 갯수칸 1개부터 3개까지 활성화
+    var main = document.getElementById("PlusJunmu").style.visibility
+    if(main=="hidden"){
+        document.getElementById("PlusJunmu").style.visibility = "visible"
+    }else{
+        document.getElementById("PlusJunmu").style.visibility = "hidden"
+    }
+}
+function PlusChanged(){
+    var PC = document.getElementById("PlusJunmuSelect").selectedIndex
+    if(PC==0){
+        document.getElementById("PlusJaeryon1").style.visibility = "hidden"
+        document.getElementById("PlusJaeryon2").style.visibility = "hidden"
+        document.getElementById("PlusJaeryon3").style.visibility = "hidden"
+    }else{
+        if(PC==1){
+            document.getElementById("PlusJaeryon1").style.visibility = "visible"
+            document.getElementById("PlusJaeryon2").style.visibility = "hidden"
+            document.getElementById("PlusJaeryon3").style.visibility = "hidden"
+        }else if(PC==2){
+            document.getElementById("PlusJaeryon1").style.visibility = "visible"
+            document.getElementById("PlusJaeryon2").style.visibility = "visible"
+            document.getElementById("PlusJaeryon3").style.visibility = "hidden"
+        }else if(PC==3){
+            document.getElementById("PlusJaeryon1").style.visibility = "visible"
+            document.getElementById("PlusJaeryon2").style.visibility = "visible"
+            document.getElementById("PlusJaeryon3").style.visibility = "visible"
+        }
+    }
 }

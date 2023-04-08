@@ -77,4 +77,17 @@ select {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     }
+#dolpaImage{
+    width:360px;
+    height:477px;
+    object-fit: fill;
+}
+.aww{
+    margin-left: 20px;
+}
+#first, #second, #third{
+    scale:111%
+}
+#PlusJaeryon2, #PlusJaeryon3{
+    margin-left: 20px;
 }
