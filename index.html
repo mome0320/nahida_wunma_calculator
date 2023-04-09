@@ -48,7 +48,7 @@
                     <input type="checkbox" name="chk_info" value="etc" onclick='checkOnlyOne(this)'>기타
                 </div>
                 <div class="cancelBtn">
-                    <input type="reset" name="cancelBtn" onclick="resetSung()">체크 해제
+                    <input type="reset" name="cancelBtn" id="cancelBtn" onclick="resetSung()">체크 해제
                 </div>
             </div>
         </div>
@@ -74,10 +74,8 @@
                     <br>
                     <img src="./image/alpano.png" width="90"><span>설명은 내 알빠가 아니니 위에 무지개링크타고 찾아보세요.</span>
             </div>
-        </div>
-
-        <label class="aw">파티 내 원소를 입력해주세요(나히다 제외 3명)</label><br>
-        <label class="aww">1 : <select name="first" id="first"><option value="bul" value="default">불 원소</option>
+            <label class="aw">파티 내 원소를 입력해주세요(나히다 제외 3명)</label><br>
+            <label class="aww">1 : <select name="first" id="first"><option value="bul" value="default">불 원소</option>
             <option value="mul">물 원소</option>
             <option value="baram">바람 원소</option>
             <option value="bunge">번개 원소</option>
@@ -97,62 +95,69 @@
                     <option value="orum">얼음 원소</option>
                     <option value="bai">바위 원소</option></select></label><br><br>
 
-        <div class="selectbox">
-            <div><input type="checkbox" id="Junmu" value="1c" onclick="junmuChecked()"><label for="1">떠오르는 천일 밤의 꿈<strong> 주의)나히다가 아닌 다른 파티원이 꼈을 경우에만 체크해주세요.</strong></label></div>
-            <div><input type="checkbox" id="2c" value="2c"><label for="2">교관 4세트</label></div>
-            <div><input type="checkbox" id="3c" value="3c"><label for="3">종말 탄식의 노래(5성 활)</label></div>
-            <div><input type="checkbox" id="4c" value="4c"><label for="4">원목의 검(4성 한손검)</label></div>
-            <div><input type="checkbox" id="5c" value="5c"><label for="5">숲의 리게일리어(4성 양손검)</label></div>
-            <div><input type="checkbox" id="6c" value="6c"><label for="6">여행자/풀속성 돌파 특성 1</label></div>
-            <div><input type="checkbox" id="7c" value="7c"><label for="7">여행자/풀속성 돌파 특성 1</div>
-            <div><input type="checkbox" id="8c" value="8c"><label for="8">알베도 돌파 특성 2</label></div>
-            <div><input type="checkbox" id="9c" value="9c"><label for="9">카에데하라 카즈하 운명의 자리 2돌</label></div>
-            <div><input type="checkbox" id="10c" value="10c"><label for="10">타이나리 운명의 자리 4돌</label></div>
-            <div><input type="checkbox" id="11c" value="11c"><label for="11">닐루 돌파 특성 1</label></div>
-            <div><input type="checkbox" id="12c" value="12c"><label for="12">디오나 운명의 자리 6</label></div>
-            <div><input type="checkbox" id="13c" value="13c"><label for="13">시카노인 헤이조 돌파 특성 2</label></div>
-            <div><input type="checkbox" id="14c" value="14c"><label for="14">콜레이 운명의 자리 4돌</label></div>
+            <div class="selectbox">
+                <div><input type="checkbox" id="Junmu" value="1c" onclick="junmuChecked()"><label for="1">떠오르는 천일 밤의 꿈<strong> 주의)나히다가 아닌 다른 파티원이 꼈을 경우에만 체크해주세요.</strong></label></div>
+                <div><input type="checkbox" id="2c" value="2c"><label for="2">교관 4세트</label></div>
+                <div><input type="checkbox" id="3c" value="3c"><label for="3">종말 탄식의 노래(5성 활)</label></div>
+                <div><input type="checkbox" id="4c" value="4c"><label for="4">원목의 검(4성 한손검)</label></div>
+                <div><input type="checkbox" id="5c" value="5c"><label for="5">숲의 리게일리어(4성 양손검)</label></div>
+                <div><input type="checkbox" id="6c" value="6c"><label for="6">여행자/풀속성 돌파 특성 1</label></div>
+                <div><input type="checkbox" id="7c" value="7c"><label for="7">여행자/풀속성 돌파 특성 1</div>
+                <div><input type="checkbox" id="8c" value="8c"><label for="8">알베도 돌파 특성 2</label></div>
+                <div><input type="checkbox" id="9c" value="9c"><label for="9">카에데하라 카즈하 운명의 자리 2돌</label></div>
+                <div><input type="checkbox" id="10c" value="10c"><label for="10">타이나리 운명의 자리 4돌</label></div>
+                <div><input type="checkbox" id="11c" value="11c"><label for="11">닐루 돌파 특성 1</label></div>
+                <div><input type="checkbox" id="12c" value="12c"><label for="12">디오나 운명의 자리 6</label></div>
+                <div><input type="checkbox" id="13c" value="13c"><label for="13">시카노인 헤이조 돌파 특성 2</label></div>
+                <div><input type="checkbox" id="14c" value="14c"><label for="14">콜레이 운명의 자리 4돌</label></div>
+            </div>
         </div>
-        <h3>---------------------------------------------</h3>
+    </div>
+
+
+    <div class="element hiddenElement">
         <div id="PlusJunmu" style="visibility: hidden;">
             <h4>떠오르는 천일 밤의 꿈 나히다 외 장착시 입력</h4>
             <h4>무기를 몇 캐릭터가 장착하고 있나요?</h4>
             <select name="PlusJunmu" id="PlusJunmuSelect" onchange="PlusChanged()">
-                <option value="0per" value="default">0명</option>
-                <option value="1per">1명</option>
-                <option value="2per">2명</option>
-                <option value="3per">3명</option>
+                <option value="0peo" value="default">0명</option>
+                <option value="1peo">1명</option>
+                <option value="2peo">2명</option>
+                <option value="3peo">3명</option>
             </select>
         </div>
-        <div id="PlusJaeryon1" style="visibility: hidden; float:left;">
-            <h5>1번 무기 재련 횟수</h5>
-            <select name="PlusJaeryon1" id="PlusJaeryonSelect1">
-                <option value="level1" value="default">1재련</option>
-                <option value="level2">2재련</option>
-                <option value="level3">3재련</option>
-                <option value="level4">4재련</option>
-                <option value="level5">5재련</option>
-            </select>
-        </div>
-        <div id="PlusJaeryon2" style="visibility: hidden; float:left;">
-            <h5>2번 무기 재련 횟수  </h5>
-            <select name="PlusJaeryon2" id="PlusJaeryonSelect2">
-                <option value="level1" value="default">1재련</option>
-                <option value="level2">2재련</option>
-                <option value="level3">3재련</option>
-                <option value="level4">4재련</option>
-                <option value="level5">5재련</option>
-            </select>
-        </div>
-        <div id="PlusJaeryon3" style="visibility: hidden; float:left;">
-            <h5>3번 무기 재련 횟수  </h5>
-            <select name="PlusJaeryon3" id="PlusJaeryonSelect3">
-                <option value="level1" value="default">1재련</option>
-                <option value="level2">2재련</option>
-                <option value="level3">3재련</option>
-                <option value="level4">4재련</option>
-                <option value="level5">5재련</option>
-            </select>
+        <div class="sector otherWeapons" id="otherWeapons">
+            <div id="PlusJaeryon1" style="visibility: hidden; float:left;">
+                <h5>1번 무기 재련 횟수</h5>
+                <select name="PlusJaeryon1" id="PlusJaeryonSelect1">
+                    <option value="level1" value="default">1재련</option>
+                    <option value="level2">2재련</option>
+                    <option value="level3">3재련</option>
+                    <option value="level4">4재련</option>
+                    <option value="level5">5재련</option>
+                </select>
+            </div>
+            <div id="PlusJaeryon2" style="visibility: hidden; float:left;">
+                <h5>2번 무기 재련 횟수  </h5>
+                <select name="PlusJaeryon2" id="PlusJaeryonSelect2">
+                    <option value="level1" value="default">1재련</option>
+                    <option value="level2">2재련</option>
+                    <option value="level3">3재련</option>
+                    <option value="level4">4재련</option>
+                    <option value="level5">5재련</option>
+                </select>
+            </div>
+            <div id="PlusJaeryon3" style="visibility: hidden; float:left;">
+                <h5>3번 무기 재련 횟수  </h5>
+                <select name="PlusJaeryon3" id="PlusJaeryonSelect3">
+                    <option value="level1" value="default">1재련</option>
+                    <option value="level2">2재련</option>
+                    <option value="level3">3재련</option>
+                    <option value="level4">4재련</option>
+                    <option value="level5">5재련</option>
+                </select>
+            </div>
+            <button class="result" onclick="resultPrint()">결과 보기</button>
         </div>
     </div>
 </body>

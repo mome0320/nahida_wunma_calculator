@@ -33,7 +33,7 @@ body {
 .flex-container{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
 }
 @media only screen and (max-width: 900px) {
@@ -57,9 +57,13 @@ select {
 .flex-container .nahida{
     display: inline-flex;
     flex-direction: column;
+    margin-left: 50px;
 }
-.flex-container .star{
+.flex-container .etc{
     display: block;
+}
+.flex-container .hiddenElement{
+    flex:1;
 }
 .description{
     display:grid;
@@ -89,5 +93,12 @@ select {
     margin-left: 20px;
 }
 #Junmu{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+.cancelBtn{
+    margin-top: 5px;
+}
+.result{
+    margin-right: 20px;
+    scale: 100%;
 }

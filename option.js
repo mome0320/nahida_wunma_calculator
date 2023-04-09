@@ -10,6 +10,7 @@ for (let level = 0; level <= 6; level++) {
 for (let level=0; level <=5; level++){
     JlevelElement.add(new Option(`${level} 재련`));
 }
+
 //hidden Element
 const PlusJunmuElement = document.getElementById('PlusJunmuSelect');
 
