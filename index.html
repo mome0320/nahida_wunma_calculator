@@ -10,7 +10,7 @@
     <script src="option.js" defer></script>
 </head>
 
-<body>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
     <div class="header">
         <span class="title">나히다의 원소 마스터리 필요량 계산기</span>
     </div>
@@ -26,10 +26,10 @@
             <div class="sector weapon">
                 <div class="title">나히다의 무기</div>
                 <div class="description">
-                    <input list="dlweapon" id="weapon-listbox">
+                    <input list="dlweapon" id="weapon-listbox" onchange="weaponChanged()">
                 </div>
             </div>
-            <div class="sector weaponEnforce">
+            <div class="sector weaponEnforce" id="weaponEnforce" style="visibility: hidden;">
                 <div class="title">무기 돌파 레벨 / 재련 단계</div>
                 <div class="description" id="WeaponLevel">
                     <img src="./image/levels/level0.PNG" id="WeaponLevelImage">
@@ -40,34 +40,26 @@
                     <select name="WLevel" id="JLevel" onchange="jaeryonChanged()"></select>
                 </div>
             </div>
+            <div class="sector sungyumul">
+                <div>
+                    <div class="title">나히다의 성유물 종류</div>
+                    <input type="checkbox" name="chk_info" value="dogum" onclick='checkOnlyOne(this)'>도금된 꿈
+                    <input type="checkbox" name="chk_info" value="supgi" onclick='checkOnlyOne(this)'>숲의 기억
+                    <input type="checkbox" name="chk_info" value="etc" onclick='checkOnlyOne(this)'>기타
+                </div>
+                <div class="cancelBtn">
+                    <input type="reset" name="cancelBtn" onclick="resetSung()">체크 해제
+                </div>
+            </div>
         </div>
         <div class="element star">
             <h3>나히다의 운명의 별자리</h3>
             <img src="./image/dol/0dol.PNG" id="dolpaImage" width="300",height="auto">
             <div>
                 <select name="dolpa" id="dolpa" onchange="dolpaChanged()">
-                    <option value="0dol" value="default">0돌파(명함)</option>
-                    <option value="1dol">1돌파</option>
-                    <option value="2dol">2돌파</option>
-                    <option value="3dol">3돌파</option>
-                    <option value="4dol">4돌파</option>
-                    <option value="5dol">5돌파</option>
-                    <option value="6dol">6돌파</option>
                 </select>
             </div>
         </div>
-        <h2>-----------------------------------------</h2>
-        <div id="PlusJunmu" style="visibility: hidden;">
-            <h4>떠오르는 천일 밤의 꿈 나히다 외 장착시 입력</h4>
-            <h4>무기를 몇 캐릭터가 장착하고 있나요?</h4>
-            <select name="PlusJunmu" id="PlusJunmuSelect" onchange="PlusChanged()">
-                <option value="0per" value="default">0명</option>
-                <option value="1per">1명</option>
-                <option value="2per">2명</option>
-                <option value="3per">3명</option>
-            </select>
-        </div>
-    </div>
 
 
 
@@ -106,54 +98,62 @@
                     <option value="bai">바위 원소</option></select></label><br><br>
 
         <div class="selectbox">
-            <div><input type="checkbox" id="1" value="1"><label for="1">풀 원소 공명</label></div>
-            <div><input type="checkbox" id="2" value="2"><label for="2">교관 4세트</label></div>
-            <div><input type="checkbox" id="3" value="3"><label for="3">종말 탄식의 노래(5성 활)</label></div>
-            <div><input type="checkbox" id="4" value="4"><label for="4">떠오르는 천일 밤의 꿈<!--<strong>주의)나히다가 아닌 다른 파티원이 꼈을 경우에만 체크해주세요.</strong></>--></label></div>
-            <div><input type="checkbox" id="5" value="5"><label for="5">원목의 검(4성 한손검)</label></div>
-            <div><input type="checkbox" id="6" value="6"><label for="6">숲의 리게일리어(4성 양손검)</label></div>
-            <div><input type="checkbox" id="7" value="7"><label for="7">여행자/풀속성 돌파 특성 1</label></div>
-            <div><input type="checkbox" id="8" value="8"><label for="8">여행자/풀속성 돌파 특성 1</div>
-            <div><input type="checkbox" id="9" value="9"><label for="9">알베도 돌파 특성 2</label></div>
-            <div><input type="checkbox" id="10" value="10"><label for="10">카에데하라 카즈하 운명의 자리 2돌</label></div>
-            <div><input type="checkbox" id="11" value="11"><label for="11">타이나리 운명의 자리 4돌</label></div>
-            <div><input type="checkbox" id="12" value="12"><label for="12">닐루 돌파 특성 1</label></div>
-            <div><input type="checkbox" id="13" value="13"><label for="13">디오나 운명의 자리 6</label></div>
-            <div><input type="checkbox" id="14" value="14"><label for="14">시카노인 헤이조 돌파 특성 2</label></div>
-            <div><input type="checkbox" id="15" value="15"><label for="15">콜레이 운명의 자리 4돌</label></div>
+            <div><input type="checkbox" id="Junmu" value="1c" onclick="junmuChecked()"><label for="1">떠오르는 천일 밤의 꿈<strong> 주의)나히다가 아닌 다른 파티원이 꼈을 경우에만 체크해주세요.</strong></label></div>
+            <div><input type="checkbox" id="2c" value="2c"><label for="2">교관 4세트</label></div>
+            <div><input type="checkbox" id="3c" value="3c"><label for="3">종말 탄식의 노래(5성 활)</label></div>
+            <div><input type="checkbox" id="4c" value="4c"><label for="4">원목의 검(4성 한손검)</label></div>
+            <div><input type="checkbox" id="5c" value="5c"><label for="5">숲의 리게일리어(4성 양손검)</label></div>
+            <div><input type="checkbox" id="6c" value="6c"><label for="6">여행자/풀속성 돌파 특성 1</label></div>
+            <div><input type="checkbox" id="7c" value="7c"><label for="7">여행자/풀속성 돌파 특성 1</div>
+            <div><input type="checkbox" id="8c" value="8c"><label for="8">알베도 돌파 특성 2</label></div>
+            <div><input type="checkbox" id="9c" value="9c"><label for="9">카에데하라 카즈하 운명의 자리 2돌</label></div>
+            <div><input type="checkbox" id="10c" value="10c"><label for="10">타이나리 운명의 자리 4돌</label></div>
+            <div><input type="checkbox" id="11c" value="11c"><label for="11">닐루 돌파 특성 1</label></div>
+            <div><input type="checkbox" id="12c" value="12c"><label for="12">디오나 운명의 자리 6</label></div>
+            <div><input type="checkbox" id="13c" value="13c"><label for="13">시카노인 헤이조 돌파 특성 2</label></div>
+            <div><input type="checkbox" id="14c" value="14c"><label for="14">콜레이 운명의 자리 4돌</label></div>
         </div>
+        <h3>---------------------------------------------</h3>
+        <div id="PlusJunmu" style="visibility: hidden;">
+            <h4>떠오르는 천일 밤의 꿈 나히다 외 장착시 입력</h4>
+            <h4>무기를 몇 캐릭터가 장착하고 있나요?</h4>
+            <select name="PlusJunmu" id="PlusJunmuSelect" onchange="PlusChanged()">
+                <option value="0per" value="default">0명</option>
+                <option value="1per">1명</option>
+                <option value="2per">2명</option>
+                <option value="3per">3명</option>
+            </select>
         </div>
-        <h3>------------------------------------------------------------</h3>
-            <div id="PlusJaeryon1" style="visibility: hidden; float:left;">
-                <h5>1번 무기 재련 횟수</h5>
-                <select name="PlusJaeryon1" id="PlusJaeryonSelect1">
-                    <option value="level1" value="default">1재련</option>
-                    <option value="level2">2재련</option>
-                    <option value="level3">3재련</option>
-                    <option value="level4">4재련</option>
-                    <option value="level5">5재련</option>
-                </select>
-            </div>
-            <div id="PlusJaeryon2" style="visibility: hidden; float:left;">
-                <h5>2번 무기 재련 횟수  </h5>
-                <select name="PlusJaeryon2" id="PlusJaeryonSelect2">
-                    <option value="level1" value="default">1재련</option>
-                    <option value="level2">2재련</option>
-                    <option value="level3">3재련</option>
-                    <option value="level4">4재련</option>
-                    <option value="level5">5재련</option>
-                </select>
-            </div>
-            <div id="PlusJaeryon3" style="visibility: hidden; float:left;">
-                <h5>3번 무기 재련 횟수  </h5>
-                <select name="PlusJaeryon3" id="PlusJaeryonSelect3">
-                    <option value="level1" value="default">1재련</option>
-                    <option value="level2">2재련</option>
-                    <option value="level3">3재련</option>
-                    <option value="level4">4재련</option>
-                    <option value="level5">5재련</option>
-                </select>
-            </div>
+        <div id="PlusJaeryon1" style="visibility: hidden; float:left;">
+            <h5>1번 무기 재련 횟수</h5>
+            <select name="PlusJaeryon1" id="PlusJaeryonSelect1">
+                <option value="level1" value="default">1재련</option>
+                <option value="level2">2재련</option>
+                <option value="level3">3재련</option>
+                <option value="level4">4재련</option>
+                <option value="level5">5재련</option>
+            </select>
+        </div>
+        <div id="PlusJaeryon2" style="visibility: hidden; float:left;">
+            <h5>2번 무기 재련 횟수  </h5>
+            <select name="PlusJaeryon2" id="PlusJaeryonSelect2">
+                <option value="level1" value="default">1재련</option>
+                <option value="level2">2재련</option>
+                <option value="level3">3재련</option>
+                <option value="level4">4재련</option>
+                <option value="level5">5재련</option>
+            </select>
+        </div>
+        <div id="PlusJaeryon3" style="visibility: hidden; float:left;">
+            <h5>3번 무기 재련 횟수  </h5>
+            <select name="PlusJaeryon3" id="PlusJaeryonSelect3">
+                <option value="level1" value="default">1재련</option>
+                <option value="level2">2재련</option>
+                <option value="level3">3재련</option>
+                <option value="level4">4재련</option>
+                <option value="level5">5재련</option>
+            </select>
+        </div>
     </div>
 </body>
 

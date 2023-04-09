@@ -14,6 +14,33 @@ function dolpaChanged(){
     var dol = document.getElementById('dolpa').selectedIndex
     document.getElementById('dolpaImage').src = `./image/dol/${dol}dol.PNG`
 }
+const weaponlists = ["떠오르는 천일 밤의 꿈",
+"방랑하는 저녁별",
+"제례의 악장",
+"음유시인의 악장",
+"마도 서론",
+"기타 무기(원소 마스터리에 영향이 없는 무기)"]
+function weaponChanged(){
+    var weaponLvl = document.getElementById('weaponEnforce')
+    if(weaponlists.includes(document.getElementById('weapon-listbox').value)){
+        weaponLvl.style.visibility = 'visible'
+    }else{
+        weaponLvl.style.visibility = 'hidden'
+    }
+}
+function checkOnlyOne(element) {
+    const checkboxes= document.getElementsByName("chk_info");
+    checkboxes.forEach((cb) => {
+        cb.checked = false;
+    })
+    element.checked = true;
+}
+function resetSung(){
+    const checkboxes= document.getElementsByName("chk_info");
+    checkboxes.forEach((cb) => {
+        cb.checked = false;
+    })
+}
 function junmuChecked(){
     var main = document.getElementById("PlusJunmu").style.visibility
     if(main=="hidden"){

@@ -68,7 +68,7 @@ select {
     justify-content: center;
 }
 
-.namulink, .imgLink{
+.namulink, .imgLink, strong{
     color: red;
 }
 @supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
@@ -87,4 +87,7 @@ select {
 }
 #PlusJaeryon2, #PlusJaeryon3{
     margin-left: 20px;
+}
+#Junmu{
+    margin-bottom: 10px;
 }

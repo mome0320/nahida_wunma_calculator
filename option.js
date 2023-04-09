@@ -1,14 +1,17 @@
 const ClevelElement = document.getElementById('Clevel');
 const WlevelElement = document.getElementById('WLevel');
 const JlevelElement = document.getElementById('JLevel');
-const 
+const DolpaElement = document.getElementById('dolpa');
 for (let level = 0; level <= 6; level++) {
     ClevelElement.add(new Option(`${level} 돌파`));
     WlevelElement.add(new Option(`${level} 돌파`));
+    DolpaElement.add(new Option(`${level} 돌파`));
 }
 for (let level=0; level <=5; level++){
     JlevelElement.add(new Option(`${level} 재련`));
 }
+//hidden Element
+const PlusJunmuElement = document.getElementById('PlusJunmuSelect');
 
 
 const weaponlist = [{name:"떠오르는 천일 밤의 꿈", description:"5성 법구 전용무기"},
