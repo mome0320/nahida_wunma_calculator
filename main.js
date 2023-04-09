@@ -1,26 +1,3 @@
-function isMobile() {
-
-    var user = navigator.userAgent;
-    var is_mobile = false;
-    if( user.indexOf("iPhone") > -1
-        || user.indexOf("Android") > -1
-        || user.indexOf("iPad") > -1
-        || user.indexOf("iPod") > -1
-    ) {
-        return true;
-    }else{
-        return false;
-    }
-}
-var a = 10
-while(a>0){
-    if(isMobile()){
-        window.location.href("https://shirakamicocoa6078.github.io/alpano/")
-        break
-    }else{
-        a = a-1
-    }
-}
 function LevelChanged(){
     var CL = document.getElementById('Clevel').selectedIndex
     document.getElementById("LevelImage").src = `./image/levels/level${CL}.PNG`
